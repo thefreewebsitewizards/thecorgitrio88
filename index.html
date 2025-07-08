@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thecorgitrio88 | Opal, Willow Wisp & Jasper</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chewy&family=DM+Serif+Display:ital@0;1&family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nerko+One&family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@200..700&family=Pacifico&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shrikhand&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=WDXL+Lubrifont+TC&display=swap" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Patrick+Hand&display=swap');
+        
+        :root {
+            --corgi-orange: #F4A261;
+            --soft-yellow: #F7E9B9;
+            --warm-cream: #F5E9E2;
+            --muted-pink: #E8C2CA;
+            --sage-green: #B5C8B7;
+            --rotate-speed: 40;
+            --count: 3;
+            --easeInOutSine: cubic-bezier(0.37, 0, 0.63, 1);
+            --easing: cubic-bezier(0.000, 0.37, 1.000, 0.63);
+        }
+        
+        body {
+            font-family: 'Montserrat', 'Comic Neue', cursive;
+            background-image: url('Images/hero-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #5a3e36;
+        }
+        
+        /* Typography Styles */
+        h1, .main-title {
+            font-family: 'Bebas Neue', cursive;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+        
+        h2, .section-title {
+            font-family: 'DM Serif Display', serif;
+            font-weight: 400;
+        }
+        
+        h3, .sub-title {
+            font-family: 'League Spartan', sans-serif;
+            font-weight: 600;
+        }
+        
+        .brand-name, .corgi-names {
+            font-family: 'Pacifico', cursive;
+        }
+        
+        .fun-text, .playful {
+            font-family: 'Chewy', cursive;
+        }
+        
+        .elegant-text {
+            font-family: 'Source Serif 4', serif;
+        }
+        
+        .bold-text {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+        }
+        
+        .cute-text {
+            font-family: 'Nerko One', cursive;
+        }
+        
+        .decorative-text {
+            font-family: 'Shrikhand', cursive;
+        }
+        
+        /* Navigation brand styling */
+        .nav-brand {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5rem;
+        }
+        
+        /* Hero section styling */
+        .hero-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3rem;
+            letter-spacing: 3px;
+        }
+        
+        .hero-subtitle {
+            font-family: 'Pacifico', cursive;
+            font-size: 2rem;
+        }
+        
+        /* Section headers */
+        .section-header {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+        }
+        
+        /* Stats numbers */
+        .stats-number {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Button text */
+        .btn-text {
+            font-family: 'League Spartan', sans-serif;
+            font-weight: 600;
+        }
+        
+        /* Carousel Styles from Carousel folder */
+        .void {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            position: relative;
+            aspect-ratio: 1 / 1;
+        }
+        
+        /* Removed hover effect - no longer pauses animation */
+        
+        .void ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            z-index: 1;
+        }
+        
+        .void li {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 110%;
+            animation: rotateCW calc(var(--rotate-speed) * 1s) linear infinite;
+        }
+        
+        /* Polaroid Card Styles */
+        .polaroid-card {
+            width: 160px;
+            height: 200px;
+            background: #FFFFFF;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1), 0px 16px 32px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 12px 12px 40px 12px;
+            animation: rotateCCW calc(var(--rotate-speed) * 1s) linear infinite;
+            position: relative;
+            transform: rotate(-3deg);
+        }
+        
+        .polaroid-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        /* Polaroid captions */
+        .polaroid-card::after {
+            content: attr(data-caption);
+            position: absolute;
+            bottom: 8px;
+            left: 12px;
+            right: 12px;
+            text-align: center;
+            font-family: 'Chewy', cursive;
+            font-size: 14px;
+            color: var(--corgi-orange);
+            font-weight: 400;
+        }
+        
+        .void li:nth-child(1), .void li:nth-child(1) .polaroid-card {
+            animation-delay: calc((var(--rotate-speed)/var(--count)) * 0s);
+        }
+        .void li:nth-child(2), .void li:nth-child(2) .polaroid-card {
+            animation-delay: calc((var(--rotate-speed)/var(--count)) * -1s);
+        }
+        .void li:nth-child(3), .void li:nth-child(3) .polaroid-card {
+            animation-delay: calc((var(--rotate-speed)/var(--count)) * -2s);
+        }
+        
+        @keyframes rotateCW {
+            from {
+                transform: translateY(-50%) rotate(0deg);
+            }
+            to {
+                transform: translateY(-50%) rotate(360deg);
+            }
+        }
+        
+        @keyframes rotateCCW {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+        
+        @keyframes pulseGlow {
+            from {
+                background-size: 60%;
+            }
+            to {
+                background-size: 100%;
+            }
+        }
+        
+        .center-circle {
+            position: absolute;
+            width: 240px;
+            aspect-ratio: 1 / 1;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, var(--soft-yellow), var(--warm-cream));
+            box-shadow: 0px 18px 36px -18px rgba(244, 162, 97, 0.3), 0px 30px 60px -12px rgba(244, 162, 97, 0.25);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid white;
+            overflow: hidden;
+            z-index: 10;
+        }
+        
+        .center-circle img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .second-circle {
+            position: absolute;
+            width: 40%;
+            aspect-ratio: 1 / 1;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--muted-pink);
+            opacity: 0.3;
+            border-radius: 50%;
+        }
+        
+        .last-circle {
+            position: absolute;
+            width: 66%;
+            aspect-ratio: 1 / 1;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--sage-green);
+            opacity: 0.2;
+            border-radius: 50%;
+        }
+        
+
+        
+        /* Floating/Bobbing Animation for Hero Stats Card */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes floatShadow {
+            0%, 100% {
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            }
+            50% {
+                box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+            }
+        }
+        
+        /* Hero Stats Card Styling */
+        .hero-stats-card {
+            animation: float 3s ease-in-out infinite, floatShadow 3s ease-in-out infinite;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hero-stats-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(244, 162, 97, 0.3), 0 15px 35px rgba(0, 0, 0, 0.2);
+            animation-play-state: paused;
+        }
+        
+        .hero-stats-card:hover .stats-number {
+            color: var(--corgi-orange);
+            transform: scale(1.1);
+        }
+        
+        .hero-stats-card:hover .hero-subtitle {
+            transform: scale(1.05);
+        }
+        
+        .stats-number {
+            transition: all 0.3s ease;
+        }
+        
+        .hero-subtitle {
+            transition: all 0.3s ease;
+        }
+        
+        /* Other existing styles */
+        .paw-print {
+            position: absolute;
+            opacity: 0.1;
+            z-index: -1;
+            animation: pawFloat 6s ease-in-out infinite;
+        }
+        
+        @keyframes pawFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        .nav-link {
+            position: relative;
+            font-family: 'Pacifico', cursive;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--corgi-orange);
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Instagram card hover effects */
+        .destination-card:hover {
+            transform: rotate(0deg) translateY(-8px) scale(1.02) !important;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+            border-color: #F97316 !important;
+        }
+        
+        .destination-card:hover .destination-image {
+            transform: scale(1.05) !important;
+            filter: brightness(1.1) contrast(1.05) !important;
+        }
+        
+        /* Instagram action button hover effects */
+        .insta-action-btn:hover {
+            color: #F97316 !important;
+            transform: scale(1.1);
+        }
+        
+        /* Fan Art Gallery Styles */
+        .fan-art-grid {
+            transition: all 0.3s ease;
+        }
+        
+        .fan-art-item {
+            transition: all 0.3s ease;
+        }
+        
+        .fan-art-item.hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+        
+        .fan-art-card {
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            border: 1px solid rgba(244, 162, 97, 0.1);
+        }
+        
+        .fan-art-card:hover {
+            border-color: rgba(244, 162, 97, 0.3);
+        }
+        
+        .filter-btn {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .filter-btn.active {
+            background-color: #f97316;
+            color: white;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+        }
+        
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .filter-btn:hover::before {
+            left: 100%;
+        }
+        
+        .load-more-btn {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .load-more-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .load-more-btn:hover::before {
+            left: 100%;
+        }
+        
+        /* Mobile Optimizations */
+        @media (max-width: 640px) {
+            .fan-art-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .fan-art-card {
+                margin-bottom: 0;
+            }
+            
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .fan-art-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .filter-btn {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.8rem;
+            }
+        }
+        
+        /* Tablet Optimizations */
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .fan-art-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        /* Desktop Optimizations */
+        @media (min-width: 1025px) {
+            .fan-art-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (min-width: 1280px) {
+            .fan-art-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+        
+        /* Floating Bubbles Animation */
+        .bubbles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: float-up linear infinite;
+            backdrop-filter: blur(2px);
+        }
+        
+        .bubble:nth-child(1) {
+            width: 20px;
+            height: 20px;
+            left: 10%;
+            animation-duration: 8s;
+            animation-delay: 0s;
+        }
+        
+        .bubble:nth-child(2) {
+            width: 30px;
+            height: 30px;
+            left: 20%;
+            animation-duration: 10s;
+            animation-delay: 2s;
+        }
+        
+        .bubble:nth-child(3) {
+            width: 15px;
+            height: 15px;
+            left: 35%;
+            animation-duration: 7s;
+            animation-delay: 1s;
+        }
+        
+        .bubble:nth-child(4) {
+            width: 25px;
+            height: 25px;
+            left: 50%;
+            animation-duration: 9s;
+            animation-delay: 3s;
+        }
+        
+        .bubble:nth-child(5) {
+            width: 18px;
+            height: 18px;
+            left: 65%;
+            animation-duration: 11s;
+            animation-delay: 1.5s;
+        }
+        
+        .bubble:nth-child(6) {
+            width: 22px;
+            height: 22px;
+            left: 80%;
+            animation-duration: 8.5s;
+            animation-delay: 4s;
+        }
+        
+        .bubble:nth-child(7) {
+            width: 28px;
+            height: 28px;
+            left: 15%;
+            animation-duration: 12s;
+            animation-delay: 2.5s;
+        }
+        
+        .bubble:nth-child(8) {
+            width: 16px;
+            height: 16px;
+            left: 75%;
+            animation-duration: 9.5s;
+            animation-delay: 0.5s;
+        }
+        
+        .bubble:nth-child(9) {
+            width: 24px;
+            height: 24px;
+            left: 40%;
+            animation-duration: 10.5s;
+            animation-delay: 3.5s;
+        }
+        
+        .bubble:nth-child(10) {
+            width: 19px;
+            height: 19px;
+            left: 90%;
+            animation-duration: 8.8s;
+            animation-delay: 1.8s;
+        }
+        
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) translateX(0px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(50px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Responsive adjustments for bubbles */
+        @media (max-width: 768px) {
+            .bubble {
+                animation-duration: 6s !important;
+            }
+            
+            .bubble:nth-child(odd) {
+                animation-duration: 7s !important;
+            }
+        }
+        
+        /* Mobile Responsive Styles */
+        
+        /* Hero Section Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 1rem 40px;
+                min-height: auto;
+            }
+            
+            .hero-section .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-section .md\:w-1\/2 {
+                width: 100%;
+                max-width: 100%;
+                margin-bottom: 2rem;
+            }
+            
+            /* Instagram card mobile adjustments */
+            .hero-section .bg-white {
+            
+                margin: 0 auto;
+                max-width: 350px;
+            }
+            
+            .hero-section h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero-section .flex.space-x-4 {
+                flex-direction: column;
+                gap: 0.75rem;
+                align-items: center;
+            }
+            
+            .hero-section .flex.space-x-4 a {
+                width: 100%;
+                max-width: 200px;
+                text-align: center;
+                justify-content: center;
+            }
+            
+            /* Carousel mobile adjustments */
+            .void {
+                max-width: 400px;
+                height: 400px;
+                margin: 0 auto;
+            }
+            
+            .void li {
+                width: 115%;
+            }
+            
+            .center-circle {
+                width: 180px;
+                height: 180px;
+                z-index: 10;
+            }
+            
+            .center-circle img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .polaroid-card {
+                width: 120px;
+                height: 150px;
+                padding: 10px 10px 35px 10px;
+            }
+            
+            .polaroid-card img {
+                height: 100px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 40px 0.75rem 30px;
+            }
+            
+            .hero-section .bg-white {
+                padding: 1rem;
+                max-width: 300px;
+            }
+            
+            .hero-section h1 {
+                font-size: 1.25rem;
+            }
+            
+            .hero-section .w-16.h-16 {
+                width: 3rem;
+                height: 3rem;
+            }
+            
+            .void {
+                max-width: 300px;
+                height: 300px;
+            }
+            
+            .void li {
+                width: 120%;
+            }
+            
+            .center-circle {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .center-circle img {
+                width: 115px;
+                height: 115px;
+            }
+            
+            .polaroid-card {
+                width: 100px;
+                height: 130px;
+                padding: 8px 8px 30px 8px;
+            }
+            
+            .polaroid-card img {
+                height: 80px;
+            }
+            
+            .polaroid-card::after {
+                font-size: 12px;
+            }
+        }
+        
+        /* Navigation Mobile Improvements */
+        @media (max-width: 768px) {
+            nav .container {
+                padding: 0.75rem 1rem;
+            }
+            
+            .nav-brand {
+                font-size: 1.1rem;
+            }
+            
+            #mobile-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                border-top: 1px solid #e5e7eb;
+                z-index: 50;
+            }
+            
+            #mobile-menu a {
+                padding: 0.75rem 1rem;
+                border-bottom: 1px solid #f3f4f6;
+            }
+            
+            #mobile-menu a:last-child {
+                border-bottom: none;
+            }
+        }
+        
+        /* General Mobile Optimizations */
+        @media (max-width: 768px) {
+            .section-header {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .py-20 {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+            
+            .px-4 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section-header {
+                font-size: 1.75rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .py-20 {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+            
+            .container {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+            }
+        }
+        
+        /* Footer Mobile Responsiveness */
+        @media (max-width: 768px) {
+            footer .flex.flex-col.md\:flex-row {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            
+            footer .flex.space-x-6 {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            footer .grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+        }
+        
+                /* Hero Section Background Responsive Styles */
+        @media (max-width: 768px) {
+            body {
+                background-image: none !important;
+                background: linear-gradient(to bottom, #fff7ed, #fdf2f8) !important;
+            }
+            
+            .hero-section .bg-white {
+                background-color: rgba(255, 255, 255, 0.98) !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                background-image: none !important;
+                background: linear-gradient(to bottom, #fff7ed, #fdf2f8) !important;
+            }
+        }
+        
+        @media (max-width: 320px) {
+            body {
+                background-image: none !important;
+                background: linear-gradient(to bottom, #fff7ed, #fdf2f8) !important;
+            }
+            
+            .void {
+                max-width: 280px;
+                height: 280px;
+            }
+            
+            .void li {
+                width: 125%;
+            }
+            
+            .center-circle {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .center-circle img {
+                width: 95px;
+                height: 95px;
+            }
+        }
+        
+        /* Adventures and Fan Art Section Background Responsive Styles */
+        @media (max-width: 768px) {
+            #gallery, #fanart {
+                background-image: none !important;
+                background: linear-gradient(to bottom, #fff7ed, #fdf2f8) !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            #gallery, #fanart {
+                background-image: none !important;
+                background: linear-gradient(to bottom, #fff7ed, #fdf2f8) !important;
+            }
+        }
+    </style>
+</head>
+<body class="relative overflow-x-hidden">
+    <!-- Floating Bubbles Background -->
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+    
+    <!-- Floating paw prints -->
+    <div class="paw-print" style="top: 10%; left: 5%;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="var(--corgi-orange)">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+        </svg>
+    </div>
+    <div class="paw-print" style="top: 30%; right: 8%; animation-delay: 1s;">
+        <svg width="50" height="50" viewBox="0 0 24 24" fill="var(--muted-pink)">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+        </svg>
+    </div>
+    <div class="paw-print" style="bottom: 15%; left: 15%; animation-delay: 2s;">
+        <svg width="35" height="35" viewBox="0 0 24 24" fill="var(--sage-green)">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+        </svg>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white bg-opacity-90 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-200 to-orange-300 flex items-center justify-center">
+                    <span class="">
+                        <img src="Images/Logo.jpg" alt="Verified" class="inline-block rounded-full w-full h-full">
+                    </span>
+                </div>
+                <span class="nav-brand text-orange-400">thecorgitrio88</span>
+            </a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-700 hover:text-orange-400">Home</a>
+                <a href="#about" class="nav-link text-gray-700 hover:text-orange-400">About</a>
+                <a href="#gallery" class="nav-link text-gray-700 hover:text-orange-400">Gallery</a>
+                <a href="#collabs" class="nav-link text-gray-700 hover:text-orange-400">Collabs</a>
+                <a href="#fanart" class="nav-link text-gray-700 hover:text-orange-400">Fan Art</a>
+                <a href="#socials" class="nav-link text-gray-700 hover:text-orange-400">Socials</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-orange-400">Contact</a>
+            </div>
+            
+            <button class="md:hidden focus:outline-none" id="menu-toggle">
+                <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-white py-2 px-4 shadow-lg" id="mobile-menu">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="nav-link text-gray-700 hover:text-orange-400">Home</a>
+                <a href="#about" class="nav-link text-gray-700 hover:text-orange-400">About</a>
+                <a href="#gallery" class="nav-link text-gray-700 hover:text-orange-400">Gallery</a>
+                <a href="#collabs" class="nav-link text-gray-700 hover:text-orange-400">Collabs</a>
+                <a href="#fanart" class="nav-link text-gray-700 hover:text-orange-400">Fan Art</a>
+                <a href="#socials" class="nav-link text-gray-700 hover:text-orange-400">Socials</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-orange-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+<section id="home" class="hero-section min-h-screen flex items-center justify-center px-4 relative overflow-hidden ">
+    <!-- Background overlay for better text readability -->
+    <div class="absolute inset-0 "></div>
+    
+    <div class="container mx-auto flex flex-col lg:flex-row items-center gap-8 relative z-10">
+        <!-- Left side: Instagram-style stats card -->
+        <div class="w-full lg:w-1/2 fade-in mb-10">
+            <div class="hero-stats-card bg-white bg-opacity-95 backdrop-blur-sm p-6 md:p-8 rounded-2xl shadow-lg max-w-md mx-auto lg:mx-0">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-yellow-200 to-orange-300 flex items-center justify-center mr-4 flex-shrink-0">
+                        <img src="Images/Logo.jpg" alt="Verified" class="w-full h-full rounded-full object-cover">
+                    </div>
+                    <div class="min-w-0 flex-1">
+                        <h1 class="text-lg md:text-2xl font-bold flex items-center main-title">
+                            <span class="truncate">@thecorgitrio88</span>
+                            <span class="ml-2 text-blue-500 flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                            </span>
+                        </h1>
+                        <p class="text-gray-600 text-sm md:text-base">Digital Creator</p>
+                    </div>
+                </div>
+                
+                <div class="flex justify-between mb-6">
+                    <div class="text-center">
+                        <p class="stats-number text-lg md:text-xl font-bold">737</p>
+                        <p class="text-gray-600 text-xs md:text-sm">Posts</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="stats-number text-lg md:text-xl font-bold">15.8K</p>
+                        <p class="text-gray-600 text-xs md:text-sm">Followers</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="stats-number text-lg md:text-xl font-bold">3,902</p>
+                        <p class="text-gray-600 text-xs md:text-sm">Following</p>
+                    </div>
+                </div>
+                
+                <h2 class="hero-subtitle mb-4 text-orange-400 text-lg md:text-xl">Opal, Willow Wisp & Jasper</h2>
+                <p class="text-gray-700 mb-6 text-sm md:text-base">The adventurous Corgi trio bringing joy to your feed with daily antics, travel adventures, and plenty of tail wags!</p>
+                
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="https://www.instagram.com/thecorgitrio88/" class="bg-orange-400 hover:bg-orange-500 text-white px-4 md:px-6 py-2 rounded-full transition-all shadow-md hover:shadow-lg flex items-center justify-center btn-text text-sm md:text-base">
+                        <i class="fab fa-instagram mr-2"></i> Follow Us
+                    </a>
+                    <a href="#gallery" class="border-2 border-orange-400 text-orange-400 hover:bg-orange-50 px-4 md:px-6 py-2 rounded-full transition-all shadow-md hover:shadow-lg btn-text text-sm md:text-base text-center">
+                        See Adventures
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right side: Advanced Carousel with Polaroid Images -->
+        <div class="w-full lg:w-1/2 fade-in" style="animation-delay: 0.3s;">
+            <div class="carousel-container">
+                <div class="void" id="void">
+                    <div class="crop">
+                        <ul id="card-list" style="--count: 3;">
+                            <li>
+                                <div class="polaroid-card" data-caption="Opal 🐾">
+                                    <img src="/Images/img2.png" alt="Opal the Corgi">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="polaroid-card" data-caption="Willow Wisp ✨">
+                                    <img src="/Images/img1.png" alt="Willow Wisp the Corgi">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="polaroid-card" data-caption="Jasper 🌟">
+                                    <img src="/Images/img3.png" alt="Jasper the Corgi">
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="last-circle"></div>
+                        <div class="second-circle"></div>
+                    </div>
+                    <div class="mask"></div>
+                    <div class="center-circle">
+                        <img src="Images/Logo.jpg" alt="The Corgi Trio Together">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 bg-gradient-to-b from-orange-50 to-pink-50">
+        <div class="container mx-auto">
+            <h2 class="section-header text-center mb-16 text-orange-400 text-6xl">Our Story</h2>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <div class="polaroid max-w-md mx-auto">
+                        <img src="/Images/About.jpg" alt="Creator with corgis" class="w-full h-auto">
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl mb-4 text-orange-400 sub-title">Meet The Corgi Trio</h3>
+                        <p class="text-gray-700 mb-4">Hi there! I'm Sarah, the proud human of these three amazing Corgis - Opal, Willow Wisp, and Jasper. What started as a simple Instagram account to share photos with family has grown into a joyful community of dog lovers!</p>
+                        
+                        <p class="text-gray-700 mb-4">Opal (the eldest) is our wise leader with a penchant for snacks. Willow Wisp (the middle child) is our mischievous adventurer. And Jasper (the baby) is our happy-go-lucky ball of energy.</p>
+                        
+                        <p class="text-gray-700 mb-6">Together, we create content that celebrates the joy of dog ownership, showcases our adventures (both big and small), and hopefully brings a smile to your face every day.</p>
+                        
+                        <div class="flex flex-wrap gap-4">
+                            <div class="bg-orange-100 px-4 py-2 rounded-full flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--corgi-orange)" width="20" height="20" class="mr-2">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                                <span>Daily Adventures</span>
+                            </div>
+                            <div class="bg-orange-100 px-4 py-2 rounded-full flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--corgi-orange)" width="20" height="20" class="mr-2">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                                <span>Travel Diaries</span>
+                            </div>
+                            <div class="bg-orange-100 px-4 py-2 rounded-full flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--corgi-orange)" width="20" height="20" class="mr-2">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                                <span>Training Tips</span>
+                            </div>
+                            <div class="bg-orange-100 px-4 py-2 rounded-full flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="var(--corgi-orange)" width="20" height="20" class="mr-2">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                </svg>
+                                <span>Product Reviews</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 px-4 bg-gradient-to-b from-pink-50 to-green-50 relative" style="background-image: url('Images/Adventures-bg.png'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;">
+        <!-- Background overlay for better content readability -->
+        <div class="absolute inset-0 bg-white bg-opacity-70"></div>
+        <div class="container mx-auto relative z-10">
+            <h2 class="section-header text-center mb-16 text-orange-400 text-6xl">Our Adventures</h2>
+            
+            <!-- Instagram Gallery -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+                
+                <!-- Instagram Post 1 -->
+                <div class="destination-card" style="width: 100%; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; transform: rotate(-1deg); border: 1px solid #dbdbdb;">
+                    <div class="insta-header" style="display: flex; align-items: center; padding: 12px 16px; border-bottom: 1px solid #efefef;">
+                        <div class="insta-profile-pic" style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 14px; color: white; font-weight: bold;">CT</div>
+                        <div>
+                            <div class="insta-username" style="font-weight: 600; font-size: 14px; color: #262626; font-family: 'Chewy', cursive;">thecorgitrio88</div>
+                            <div class="insta-location" style="font-size: 12px; color: #8e8e8e; margin-top: 2px; font-family: 'Montserrat', sans-serif;">Daily Adventures</div>
+                        </div>
+                    </div>
+                    <img src="/Images/img1.png" 
+                         alt="Corgi trio adventure" 
+                         class="destination-image" style="width: 100%; height: 250px; object-fit: cover; display: block; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                    <div class="insta-actions" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 16px; border-bottom: 1px solid #efefef;">
+                        <div class="insta-action-buttons" style="display: flex; gap: 16px;">
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">♡</button>
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">💬</button>
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">📤</button>
+                        </div>
+                        <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">🔖</button>
+                    </div>
+                    <div class="insta-likes" style="font-weight: 600; font-size: 14px; color: #262626; padding: 0 16px 16px; font-family: 'Montserrat', sans-serif;">1,247 likes</div>
+                </div>
+
+                <!-- Instagram Post 2 -->
+                <div class="destination-card" style="width: 100%; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; transform: rotate(1deg); border: 1px solid #dbdbdb;">
+                    <div class="insta-header" style="display: flex; align-items: center; padding: 12px 16px; border-bottom: 1px solid #efefef;">
+                        <div class="insta-profile-pic" style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 14px; color: white; font-weight: bold;">CT</div>
+                        <div>
+                            <div class="insta-username" style="font-weight: 600; font-size: 14px; color: #262626; font-family: 'Chewy', cursive;">thecorgitrio88</div>
+                            <div class="insta-location" style="font-size: 12px; color: #8e8e8e; margin-top: 2px; font-family: 'Montserrat', sans-serif;">Behind the Scenes</div>
+                        </div>
+                    </div>
+                    <img src="Images/img2.png" 
+                         alt="Behind the scenes with the corgis" 
+                         class="destination-image" style="width: 100%; height: 250px; object-fit: cover; display: block; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                    <div class="insta-actions" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 16px; border-bottom: 1px solid #efefef;">
+                        <div class="insta-action-buttons" style="display: flex; gap: 16px;">
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">♡</button>
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">💬</button>
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">📤</button>
+                        </div>
+                        <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">🔖</button>
+                    </div>
+                    <div class="insta-likes" style="font-weight: 600; font-size: 14px; color: #262626; padding: 0 16px 16px; font-family: 'Montserrat', sans-serif;">892 likes</div>
+                </div>
+
+                <!-- Instagram Post 3 -->
+                <div class="destination-card" style="width: 100%; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; transform: rotate(-1deg); border: 1px solid #dbdbdb;">
+                    <div class="insta-header" style="display: flex; align-items: center; padding: 12px 16px; border-bottom: 1px solid #efefef;">
+                        <div class="insta-profile-pic" style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 14px; color: white; font-weight: bold;">CT</div>
+                        <div>
+                            <div class="insta-username" style="font-weight: 600; font-size: 14px; color: #262626; font-family: 'Chewy', cursive;">thecorgitrio88</div>
+                            <div class="insta-location" style="font-size: 12px; color: #8e8e8e; margin-top: 2px; font-family: 'Montserrat', sans-serif;">Product Review</div>
+                        </div>
+                    </div>
+                    <img src="/Images/img3.png" 
+                         alt="Product review content" 
+                         class="destination-image" style="width: 100%; height: 250px; object-fit: cover; display: block; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                    <div class="insta-actions" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 16px; border-bottom: 1px solid #efefef;">
+                        <div class="insta-action-buttons" style="display: flex; gap: 16px;">
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">♡</button>
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">💬</button>
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">📤</button>
+                        </div>
+                        <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">🔖</button>
+                    </div>
+                    <div class="insta-likes" style="font-weight: 600; font-size: 14px; color: #262626; padding: 0 16px 16px; font-family: 'Montserrat', sans-serif;">1,563 likes</div>
+                </div>
+
+                <!-- Instagram Post 4 -->
+                <div class="destination-card" style="width: 100%; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; transform: rotate(1deg); border: 1px solid #dbdbdb;">
+                    <div class="insta-header" style="display: flex; align-items: center; padding: 12px 16px; border-bottom: 1px solid #efefef;">
+                        <div class="insta-profile-pic" style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 14px; color: white; font-weight: bold;">CT</div>
+                        <div>
+                            <div class="insta-username" style="font-weight: 600; font-size: 14px; color: #262626; font-family: 'Chewy', cursive;">thecorgitrio88</div>
+                            <div class="insta-location" style="font-size: 12px; color: #8e8e8e; margin-top: 2px; font-family: 'Montserrat', sans-serif;">Travel Adventures</div>
+                        </div>
+                    </div>
+                    <img src="/Images/img4.png" 
+                         alt="Travel adventures" 
+                         class="destination-image" style="width: 100%; height: 250px; object-fit: cover; display: block; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                    <div class="insta-actions" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 16px; border-bottom: 1px solid #efefef;">
+                        <div class="insta-action-buttons" style="display: flex; gap: 16px;">
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">♡</button>
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">💬</button>
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">📤</button>
+                        </div>
+                        <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">🔖</button>
+                    </div>
+                    <div class="insta-likes" style="font-weight: 600; font-size: 14px; color: #262626; padding: 0 16px 16px; font-family: 'Montserrat', sans-serif;">734 likes</div>
+                </div>
+
+                <!-- Instagram Post 5 -->
+                <div class="destination-card" style="width: 100%; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; transform: rotate(-1deg); border: 1px solid #dbdbdb;">
+                    <div class="insta-header" style="display: flex; align-items: center; padding: 12px 16px; border-bottom: 1px solid #efefef;">
+                        <div class="insta-profile-pic" style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 14px; color: white; font-weight: bold;">CT</div>
+                        <div>
+                            <div class="insta-username" style="font-weight: 600; font-size: 14px; color: #262626; font-family: 'Chewy', cursive;">thecorgitrio88</div>
+                            <div class="insta-location" style="font-size: 12px; color: #8e8e8e; margin-top: 2px; font-family: 'Montserrat', sans-serif;">Training Tips</div>
+                        </div>
+                    </div>
+                    <img src="/Images/img5.png" 
+                         alt="Training tips" 
+                         class="destination-image" style="width: 100%; height: 250px; object-fit: cover; display: block; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                    <div class="insta-actions" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 16px; border-bottom: 1px solid #efefef;">
+                        <div class="insta-action-buttons" style="display: flex; gap: 16px;">
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">♡</button>
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">💬</button>
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">📤</button>
+                        </div>
+                        <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">🔖</button>
+                    </div>
+                    <div class="insta-likes" style="font-weight: 600; font-size: 14px; color: #262626; padding: 0 16px 16px; font-family: 'Montserrat', sans-serif;">2,156 likes</div>
+                </div>
+
+                <!-- Instagram Post 6 -->
+                <div class="destination-card" style="width: 100%; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; transform: rotate(1deg); border: 1px solid #dbdbdb;">
+                    <div class="insta-header" style="display: flex; align-items: center; padding: 12px 16px; border-bottom: 1px solid #efefef;">
+                        <div class="insta-profile-pic" style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 14px; color: white; font-weight: bold;">CT</div>
+                        <div>
+                            <div class="insta-username" style="font-weight: 600; font-size: 14px; color: #262626; font-family: 'Chewy', cursive;">thecorgitrio88</div>
+                            <div class="insta-location" style="font-size: 12px; color: #8e8e8e; margin-top: 2px; font-family: 'Montserrat', sans-serif;">Special Events</div>
+                        </div>
+                    </div>
+                    <img src="Images/img6.png" 
+                         alt="Special events" 
+                         class="destination-image" style="width: 100%; height: 250px; object-fit: cover; display: block; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                    <div class="insta-actions" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 16px; border-bottom: 1px solid #efefef;">
+                        <div class="insta-action-buttons" style="display: flex; gap: 16px;">
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">♡</button>
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">💬</button>
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">📤</button>
+                        </div>
+                        <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">🔖</button>
+                    </div>
+                    <div class="insta-likes" style="font-weight: 600; font-size: 14px; color: #262626; padding: 0 16px 16px; font-family: 'Montserrat', sans-serif;">1,089 likes</div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="https://www.instagram.com/thecorgitrio88/" class="inline-block bg-orange-400 hover:bg-orange-500 text-white px-8 py-3 rounded-full transition-all shadow-md hover:shadow-lg">
+                    Follow Us on Instagram
+                </a>
+            </div>
+            
+            <!-- TikTok Videos Section -->
+            <div class="mt-16">
+                <h3 class="text-2xl font-bold text-center mb-8 text-orange-400">Our Latest TikTok Adventures</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- TikTok Video 1 -->
+                    <div class="flex justify-center">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@thecorgitrio88/video/7404893350756666655" data-video-id="7404893350756666655" style="max-width: 605px;min-width: 325px;">
+                            <section>
+                                <a target="_blank" title="@thecorgitrio88" href="https://www.tiktok.com/@thecorgitrio88?refer=embed">@thecorgitrio88</a>
+                                Opal and I are loving the 2 Fur Doodie harness! 🐶✨ Built-in bag dispenser, comfy fit, and perfect for our adventures. 🌲🏃‍♀️ Paws up! 🐾💖
+                                <a title="opalthefluffycorgi" target="_blank" href="https://www.tiktok.com/tag/opalthefluffycorgi?refer=embed">#OpalTheFluffyCorgi</a>
+                                <a title="2furdoodie" target="_blank" href="https://www.tiktok.com/tag/2furdoodie?refer=embed">#2FurDoodie</a>
+                                <a title="doggyadventures" target="_blank" href="https://www.tiktok.com/tag/doggyadventures?refer=embed">#DoggyAdventures</a>
+                                <a title="petgear" target="_blank" href="https://www.tiktok.com/tag/petgear?refer=embed">#PetGear</a>
+                                Tag @2furdoodie on Instagram and @2 Fur Doodie
+                                <a target="_blank" title="♬ original sound - The Corgi Trio" href="https://www.tiktok.com/music/original-sound-7404893331337087774?refer=embed">♬ original sound - The Corgi Trio</a>
+                            </section>
+                        </blockquote>
+                    </div>
+                    
+                    <!-- TikTok Video 2 -->
+                    <div class="flex justify-center">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@thecorgitrio88/video/7480341204274548014" data-video-id="7480341204274548014" style="max-width: 605px;min-width: 325px;">
+                            <section>
+                                <a target="_blank" title="@thecorgitrio88" href="https://www.tiktok.com/@thecorgitrio88?refer=embed">@thecorgitrio88</a>
+                                The highlight of the day is here! 🐾 The trio waits eagerly by the door, wagging their tails as the mailman approaches. Nothing beats the excitement of greeting our favorite delivery friend! 📦✨
+                                <a title="mailtimemagic" target="_blank" href="https://www.tiktok.com/tag/mailtimemagic?refer=embed">#MailtimeMagic</a>
+                                <a title="thecorgitrio" target="_blank" href="https://www.tiktok.com/tag/thecorgitrio?refer=embed">#TheCorgiTrio</a>
+                                <a title="dailyjoy" target="_blank" href="https://www.tiktok.com/tag/dailyjoy?refer=embed">#DailyJoy</a>
+                                <a title="corgihappiness" target="_blank" href="https://www.tiktok.com/tag/corgihappiness?refer=embed">#CorgiHappiness</a>
+                                <a title="barkanddeliver" target="_blank" href="https://www.tiktok.com/tag/barkanddeliver?refer=embed">#BarkAndDeliver</a>
+                                <a title="corgilife" target="_blank" href="https://www.tiktok.com/tag/corgilife?refer=embed">#CorgiLife</a>
+                                <a title="fluffygreetings" target="_blank" href="https://www.tiktok.com/tag/fluffygreetings?refer=embed">#FluffyGreetings</a>
+                                <a target="_blank" title="♬ Anxiety - Doechii" href="https://www.tiktok.com/music/Anxiety-7474209817062574850?refer=embed">♬ Anxiety - Doechii</a>
+                            </section>
+                        </blockquote>
+                    </div>
+                    
+                    <!-- TikTok Video 3 -->
+                    <div class="flex justify-center">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@thecorgitrio88/video/7522919337833942303" data-video-id="7522919337833942303" style="max-width: 605px;min-width: 325px;">
+                            <section>
+                                <a target="_blank" title="@thecorgitrio88" href="https://www.tiktok.com/@thecorgitrio88?refer=embed">@thecorgitrio88</a>
+                                <p></p>
+                                <a target="_blank" title="♬ In the Summertime - Mungo Jerry" href="https://www.tiktok.com/music/In-the-Summertime-7106413755759593474?refer=embed">♬ In the Summertime - Mungo Jerry</a>
+                            </section>
+                        </blockquote>
+                    </div>
+                </div>
+                
+                <!-- Follow us on TikTok Button -->
+                <div class="text-center mt-10">
+                    <a href="https://www.tiktok.com/@thecorgitrio88" target="_blank" class="inline-block bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-full transition-all shadow-md hover:shadow-lg">
+                        <i class="fab fa-tiktok mr-2"></i> Follow us on TikTok
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Collaborations Section -->
+    <section id="collabs" class="py-20 px-4 bg-gradient-to-b from-green-50 to-yellow-50">
+        <div class="container mx-auto">
+            <h2 class="section-header text-center mb-16 text-orange-400 text-6xl">Collaborations & Promos</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Past Brand Work -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-orange-400">
+                                <path d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.67-1.34l.04-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl text-orange-400 nav-brand">Past Brand Work</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">We've had the pleasure of working with these amazing brands:</p>
+                    
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="bg-gray-50 p-3 rounded-lg flex items-center justify-center hover:bg-orange-50 transition-colors">
+                            <span class="font-semibold text-gray-700">Smartturf</span>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg flex items-center justify-center hover:bg-orange-50 transition-colors">
+                            <span class="font-semibold text-gray-700">Luko Luko</span>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg flex items-center justify-center hover:bg-orange-50 transition-colors">
+                            <span class="font-semibold text-gray-700">Kani Kouture</span>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg flex items-center justify-center hover:bg-orange-50 transition-colors">
+                            <span class="font-semibold text-gray-700">MuddyMat</span>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg flex items-center justify-center hover:bg-orange-50 transition-colors">
+                            <span class="font-semibold text-gray-700">Boxwow_official</span>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg flex items-center justify-center hover:bg-orange-50 transition-colors">
+                            <span class="font-semibold text-gray-700">Dreamworks</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Giftings -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-orange-400">
+                                <path d="M9.375 3a1.875 1.875 0 000 3.75h1.875v4.5H3.375A1.875 1.875 0 011.5 9.375v-.75c0-1.036.84-1.875 1.875-1.875h3.193A3.375 3.375 0 0112 2.753a3.375 3.375 0 015.432 3.997h3.943c1.035 0 1.875.84 1.875 1.875v.75c0 1.036-.84 1.875-1.875 1.875H12.75v-4.5h1.875a1.875 1.875 0 10-1.875-1.875V6.75h-1.5V4.875C11.25 3.839 10.41 3 9.375 3zM11.25 12.75H3v6.75a2.25 2.25 0 002.25 2.25h6v-9zM12.75 12.75v9h6.75a2.25 2.25 0 002.25-2.25v-6.75h-9z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl text-orange-400 nav-brand">Giftings</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">We love trying and reviewing products for our followers!</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-orange-100 rounded-full p-2 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-orange-400">
+                                    <path d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"/>
+                                </svg>
+                            </div>
+                            <p class="text-gray-700">Dog food & treats</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-orange-100 rounded-full p-2 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-orange-400">
+                                    <path d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"/>
+                                </svg>
+                            </div>
+                            <p class="text-gray-700">Toys & accessories</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-orange-100 rounded-full p-2 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-orange-400">
+                                    <path d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"/>
+                                </svg>
+                            </div>
+                            <p class="text-gray-700">Grooming products</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-orange-100 rounded-full p-2 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-orange-400">
+                                    <path d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"/>
+                                </svg>
+                            </div>
+                            <p class="text-gray-700">Travel gear</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Promo Codes -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-orange-400">
+                                <path d="M5.223 2.25c-.497 0-.974.198-1.325.55l-1.3 1.298A3.75 3.75 0 007.5 9.75c.627.47 1.406.75 2.25.75.844 0 1.623-.28 2.25-.75a3.75 3.75 0 004.902-5.652l-1.3-1.299a1.875 1.875 0 00-1.325-.549H5.223z"/>
+                                <path fill-rule="evenodd" d="M3 20.25v-8.755c1.42.674 3.08.673 4.5 0A5.234 5.234 0 009.75 12c.804 0 1.568-.182 2.25-.506a5.234 5.234 0 002.25.506c.804 0 1.567-.182 2.25-.506 1.42.674 3.08.675 4.5.001v8.755h.75a.75.75 0 010 1.5H2.25a.75.75 0 010-1.5H3zm3-6a.75.75 0 01.75-.75h3a.75.75 0 01.75.75v3a.75.75 0 01-.75.75h-3a.75.75 0 01-.75-.75v-3zm8.25-.75a.75.75 0 00-.75.75v5.25c0 .414.336.75.75.75h3a.75.75 0 00.75-.75v-5.25a.75.75 0 00-.75-.75h-3z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl text-orange-400 nav-brand">Promo Codes</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">Exclusive discounts for our followers:</p>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-orange-50 p-4 rounded-lg hover:bg-orange-100 transition-colors">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold">CORGITRIO10</span>
+                                <span class="bg-orange-400 text-white text-xs px-2 py-1 rounded-full">10% OFF</span>
+                            </div>
+                            <p class="text-sm text-gray-600">At PawsomeTreats.com</p>
+                        </div>
+                        
+                        <div class="bg-orange-50 p-4 rounded-lg hover:bg-orange-100 transition-colors">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold">TRIO15</span>
+                                <span class="bg-orange-400 text-white text-xs px-2 py-1 rounded-full">15% OFF</span>
+                            </div>
+                            <p class="text-sm text-gray-600">At DoggoGear.store</p>
+                        </div>
+                        
+                        <div class="bg-orange-50 p-4 rounded-lg hover:bg-orange-100 transition-colors">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-bold">WAGSWITHUS</span>
+                                <span class="bg-orange-400 text-white text-xs px-2 py-1 rounded-full">Free Shipping</span>
+                            </div>
+                            <p class="text-sm text-gray-600">At TailWaggers.shop</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Wanna Collab? Section -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden max-w-4xl mx-auto">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-gradient-to-br from-orange-100 to-yellow-100 p-8 flex flex-col justify-center">
+                        <h3 class="text-2xl mb-4 text-orange-400 sub-title">Wanna Collab?</h3>
+                        <p class="text-gray-700 mb-6">We're always excited to partner with brands that align with our values and bring value to our community of dog lovers!</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="bg-orange-400 rounded-full p-1 mr-3 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="14" height="14">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                    </svg>
+                                </div>
+                                <p class="text-gray-700"><span class="font-bold">Sponsored Posts:</span> Product features, reviews, and integrations</p>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-orange-400 rounded-full p-1 mr-3 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="14" height="14">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                    </svg>
+                                </div>
+                                <p class="text-gray-700"><span class="font-bold">Shoutouts:</span> Brand mentions and recommendations</p>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-orange-400 rounded-full p-1 mr-3 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="14" height="14">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                    </svg>
+                                </div>
+                                <p class="text-gray-700"><span class="font-bold">Content Bundles:</span> Multi-platform campaigns</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-8">
+                        <h4 class="text-xl mb-6 text-center text-orange-400 sub-title">Pricing Packages</h4>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-bold">Single Post</span>
+                                    <span class="font-bold">$150-$300</span>
+                                </div>
+                                <div class="w-full bg-orange-100 rounded-full h-2">
+                                    <div class="bg-orange-400 h-2 rounded-full" style="width: 30%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-bold">Story Feature</span>
+                                    <span class="font-bold">$75-$150</span>
+                                </div>
+                                <div class="w-full bg-orange-100 rounded-full h-2">
+                                    <div class="bg-orange-400 h-2 rounded-full" style="width: 20%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-bold">Multi-Post Bundle</span>
+                                    <span class="font-bold">$400-$800</span>
+                                </div>
+                                <div class="w-full bg-orange-100 rounded-full h-2">
+                                    <div class="bg-orange-400 h-2 rounded-full" style="width: 50%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="font-bold">Video Content</span>
+                                    <span class="font-bold">$200-$500</span>
+                                </div>
+                                <div class="w-full bg-orange-100 rounded-full h-2">
+                                    <div class="bg-orange-400 h-2 rounded-full" style="width: 40%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-8">
+                            <a href="#contact" class="inline-block bg-orange-400 hover:bg-orange-500 text-white px-8 py-3 rounded-full transition-all shadow-md hover:shadow-lg">
+                                Message Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Fan Art Section -->
+    <section id="fanart" class="py-20 px-4 bg-gradient-to-b from-yellow-50 to-pink-50 relative" style="background-image: url('Images/Fanart-bg.png'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;">
+        <!-- Background overlay for better content readability -->
+        <div class="absolute inset-0 bg-white bg-opacity-70"></div>
+        <div class="container mx-auto relative z-10">
+            <h2 class="section-header text-center mb-16 text-orange-400 text-6xl">Fan Art Gallery</h2>
+            <p class="text-center max-w-2xl mx-auto text-gray-700 mb-12">Our amazing community creates the most wonderful art featuring Opal, Willow Wisp, and Jasper. Here are some of our favorites!</p>
+            
+            <!-- Simplified Gallery Grid - Only 4 Images -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <!-- Fan Art 1 -->
+                <div class="group relative">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="relative overflow-hidden">
+                            <img src="Images/hero-bg.png" alt="Fan Art 1" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div class="absolute bottom-4 left-4 right-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
+                                <p class="font-bold text-sm mb-1">By @artbydana</p>
+                                <p class="text-xs opacity-90">Digital Portrait</p>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-heart text-red-500"></i>
+                                    <span class="text-sm text-gray-600">247</span>
+                                </div>
+                                <button class="text-orange-400 hover:text-orange-600 transition-colors">
+                                    <i class="fas fa-expand-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fan Art 2 -->
+                <div class="group relative">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="relative overflow-hidden">
+                            <img src="/Images/Fanart-bg.png" alt="Fan Art 2" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div class="absolute bottom-4 left-4 right-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
+                                <p class="font-bold text-sm mb-1">By @pawsandpaint</p>
+                                <p class="text-xs opacity-90">Watercolor Painting</p>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-heart text-red-500"></i>
+                                    <span class="text-sm text-gray-600">189</span>
+                                </div>
+                                <button class="text-orange-400 hover:text-orange-600 transition-colors">
+                                    <i class="fas fa-expand-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fan Art 3 -->
+                <div class="group relative">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="relative overflow-hidden">
+                            <img src="/Images/Adventures-bg.png" alt="Fan Art 3" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div class="absolute bottom-4 left-4 right-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
+                                <p class="font-bold text-sm mb-1">By @doggoartstudio</p>
+                                <p class="text-xs opacity-90">Character Design</p>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-heart text-red-500"></i>
+                                    <span class="text-sm text-gray-600">312</span>
+                                </div>
+                                <button class="text-orange-400 hover:text-orange-600 transition-colors">
+                                    <i class="fas fa-expand-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fan Art 4 -->
+                <div class="group relative">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <div class="relative overflow-hidden">
+                            <img src="/Images/Logo.jpg" alt="Fan Art 4" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div class="absolute bottom-4 left-4 right-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
+                                <p class="font-bold text-sm mb-1">By @corgicreations</p>
+                                <p class="text-xs opacity-90">Portrait Photography</p>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <i class="fas fa-heart text-red-500"></i>
+                                    <span class="text-sm text-gray-600">156</span>
+                                </div>
+                                <button class="text-orange-400 hover:text-orange-600 transition-colors">
+                                    <i class="fas fa-expand-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-gray-700 mb-4">Want to see your art featured here? Tag us with #corgitrioart!</p>
+                <a href="#socials" class="inline-block border-2 border-orange-400 text-orange-400 hover:bg-orange-50 px-6 py-2 rounded-full transition-all shadow-md hover:shadow-lg">
+                    Share Your Art
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Socials Section -->
+    <section id="socials" class="py-20 px-4 bg-gradient-to-b from-pink-50 to-orange-50">
+        <div class="container mx-auto">
+            <h2 class="section-header text-center mb-16 text-orange-400 text-5xl">Find Us On Social Media</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/thecorgitrio88/" class="social-card bg-gradient-to-br from-pink-400 to-purple-500 text-white rounded-2xl p-6 shadow-lg transition-all hover:shadow-xl hover:-translate-y-2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-white bg-opacity-20 flex items-center justify-center mr-4">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl sub-title">Instagram</h3>
+                    </div>
+                    <p class="mb-6">Daily photos & stories of the trio's adventures</p>
+                    <div class="flex items-center">
+                        <span class="font-bold mr-2">@thecorgitrio88</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        </svg>
+                    </div>
+                </a>
+                
+                <!-- TikTok -->
+                <a href="https://www.tiktok.com/@thecorgitrio88" class="social-card bg-gradient-to-br from-teal-400 to-blue-500 text-white rounded-2xl p-6 shadow-lg transition-all hover:shadow-xl hover:-translate-y-2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-white bg-opacity-20 flex items-center justify-center mr-4">
+                            <i class="fab fa-tiktok text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl sub-title">TikTok</h3>
+                    </div>
+                    <p class="mb-6">Funny videos & trending sounds with the pups</p>
+                    <div class="flex items-center">
+                        <span class="font-bold mr-2">@thecorgitrio88</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        </svg>
+                    </div>
+                </a>
+                
+                <!-- Email -->
+                <a href="opalthefluffycorgi@gmail.com" class="social-card bg-gradient-to-br from-blue-400 to-blue-600 text-white rounded-2xl p-6 shadow-lg transition-all hover:shadow-xl hover:-translate-y-2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-white bg-opacity-20 flex items-center justify-center mr-4">
+                            <i class="fas fa-envelope text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl sub-title">Email</h3>
+                    </div>
+                    <p class="mb-6">Community group & live streams</p>
+                    <div class="flex items-center">
+                        <span class="font-bold mr-2">The Corgi Trio</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- link tree -->
+                <a href="https://www.facebook.com/thecorgitrio/?ref=_xav_ig_profile_page_web_bt#" class="social-card bg-gradient-to-br from-blue-400 to-blue-600 text-white rounded-2xl p-6 shadow-lg transition-all hover:shadow-xl hover:-translate-y-2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-white bg-opacity-20 flex items-center justify-center mr-4">
+                            <i class="fas fa-facebook text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl sub-title">facebook</h3>
+                    </div>
+                    <p class="mb-6">Community group & live streams</p>
+                    <div class="flex items-center">
+                        <span class="font-bold mr-2">The Corgi Trio</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+<footer class="bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 border-t border-gray-200">
+    <div class="container mx-auto">
+        <!-- Main Footer Content -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <!-- Brand Section -->
+            <div class="md:col-span-2">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-200 to-orange-300 flex items-center justify-center">
+                        <img src="Images/Logo.jpg" alt="The Corgi Trio" class="w-full h-full rounded-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 nav-brand">@thecorgitrio88</h3>
+                        <p class="text-gray-600 text-sm">The Corgi Trio</p>
+                    </div>
+                </div>
+                <p class="text-gray-700 mb-4 max-w-md">Follow the daily adventures of Opal, Willow Wisp, and Jasper - three adorable Corgis bringing joy to your feed with their antics, travels, and endless tail wags!</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-orange-400 transition-colors">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-orange-400 transition-colors">
+                        <i class="fab fa-tiktok text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-orange-400 transition-colors">
+                        <i class="fab fa-youtube text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-orange-400 transition-colors">
+                        <i class="fab fa-facebook text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-lg font-semibold text-gray-800 mb-4 sub-title">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="#home" class="text-gray-600 hover:text-orange-400 transition-colors">Home</a></li>
+                    <li><a href="#about" class="text-gray-600 hover:text-orange-400 transition-colors">About Us</a></li>
+                    <li><a href="#gallery" class="text-gray-600 hover:text-orange-400 transition-colors">Gallery</a></li>
+                    <li><a href="#fanart" class="text-gray-600 hover:text-orange-400 transition-colors">Fan Art</a></li>
+                    <li><a href="#contact" class="text-gray-600 hover:text-orange-400 transition-colors">Contact</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contact Info -->
+            <div>
+                <h4 class="text-lg font-semibold text-gray-800 mb-4 sub-title">Get In Touch</h4>
+                <ul class="space-y-3">
+                    <li class="flex items-center text-gray-600">
+                        <i class="fas fa-envelope mr-3 text-orange-400"></i>
+                        <span class="text-sm">thecorgitrio88@gmail.com</span>
+                    </li>
+                    <li class="flex items-center text-gray-600">
+                        <i class="fab fa-instagram mr-3 text-orange-400"></i>
+                        <span class="text-sm">@thecorgitrio88</span>
+                    </li>
+                    <li class="flex items-center text-gray-600">
+                        <i class="fas fa-clock mr-3 text-orange-400"></i>
+                        <span class="text-sm">Response: 1-3 days</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Newsletter Signup -->
+        <div class="bg-white rounded-2xl p-6 mb-8 shadow-sm border border-gray-200">
+            <div class="text-center md:text-left md:flex md:items-center md:justify-between">
+                <div class="mb-4 md:mb-0">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2 sub-title">Stay Updated! 🐾</h4>
+                    <p class="text-gray-600 text-sm">Get the latest updates on our adventures and exclusive content!</p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3 md:max-w-md">
+                    <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent text-sm">
+                    <button class="bg-orange-400 hover:bg-orange-500 text-white px-6 py-2 rounded-full transition-all shadow-md hover:shadow-lg text-sm font-medium">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Footer -->
+        <div class="border-t border-gray-200 pt-6">
+            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2024 The Corgi Trio. All rights reserved.</p>
+                </div>
+                <div class="flex flex-wrap justify-center md:justify-end space-x-6">
+                    <a href="#" class="hover:text-orange-400 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-orange-400 transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-orange-400 transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+            <!-- TikTok Embed Script -->
+            <script async src="https://www.tiktok.com/embed.js"></script>
+                <script>
+
+// Mobile menu toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    }
+    
+    // Newsletter subscription
+    const subscribeBtn = document.querySelector('footer button');
+    if (subscribeBtn) {
+        subscribeBtn.addEventListener('click', function() {
+            const emailInput = this.previousElementSibling;
+            if (emailInput && emailInput.value) {
+                this.innerHTML = 'Subscribed! ✓';
+                this.classList.add('bg-green-500');
+                this.classList.remove('bg-orange-400', 'hover:bg-orange-500');
+                emailInput.value = '';
+                
+                setTimeout(() => {
+                    this.innerHTML = 'Subscribe';
+                    this.classList.remove('bg-green-500');
+                    this.classList.add('bg-orange-400', 'hover:bg-orange-500');
+                }, 3000);
+            }
+        });
+    }
+}); 
+</script>
+</body>
+</html>

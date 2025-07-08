@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monica Smirnoff | UGC Creator & Food Photographer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'soft-pink': '#F8D7D5',
+                        'muted-beige': '#EDE4DF',
+                        'warm-gray': '#D3CDC8',
+                        'deep-gray': '#3C3C3C',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1s ease-in',
+                        'marquee': 'marquee 20s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom CSS for elements that need more specific styling */
+        .hero-image-container {
+            perspective: 1500px;
+        }
+        .hero-image {
+            transform: rotateY(-15deg);
+            box-shadow: 20px 20px 40px rgba(0,0,0,0.1);
+            transition: all 0.5s ease;
+        }
+        .hero-image:hover {
+            transform: rotateY(0deg);
+        }
+        .video-container {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        .video-placeholder {
+            border-radius: 22px;
+            overflow: hidden;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+        }
+        .social-card:hover .social-icon {
+            transform: scale(1.2);
+        }
+        .animated-border {
+            position: relative;
+        }
+        .animated-border::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid rgba(248, 215, 213, 0.8);
+            border-radius: 12px;
+            animation: pulse 2s infinite;
+            opacity: 0;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                opacity: 0.7;
+            }
+            70% {
+                transform: scale(1.05);
+                opacity: 0.3;
+            }
+            100% {
+                transform: scale(0.95);
+                opacity: 0;
+            }
+        }
+        .scroll-fade {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Phone mockup hover effects */
+        .phone-mockup:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.02) !important;
+            box-shadow: 0 35px 70px rgba(0,0,0,0.3) !important;
+        }
+        
+        /* Video overlay hover */
+        .video-card:hover .video-overlay {
+            opacity: 1 !important;
+        }
+        
+        /* Instagram card hover effects */
+        .destination-card:hover {
+            transform: rotate(0deg) translateY(-8px) scale(1.02) !important;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+            border-color: #F8D7D5 !important;
+        }
+        
+        .destination-card:hover .destination-image {
+            transform: scale(1.05) !important;
+            filter: brightness(1.1) contrast(1.05) !important;
+        }
+        
+        /* Scroll container styling */
+        .overflow-x-auto {
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .overflow-x-auto::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .w-72 {
+            scroll-snap-align: start;
+        }
+        
+        /* Mobile-specific improvements */
+        @media (max-width: 768px) {
+            .hero-social-cards {
+                position: relative !important;
+                width: 100% !important;
+                height: auto !important;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero-social-card {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+            
+            .phone-mockup {
+                width: 200px !important;
+                height: 400px !important;
+                transform: perspective(1000px) rotateY(0deg) rotateX(0deg) !important;
+            }
+            
+            .floating-elements {
+                display: none;
+            }
+            
+            .marquee-text {
+                font-size: 1.5rem !important;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem !important;
+                line-height: 1.2;
+            }
+            
+            .section-title {
+                font-size: 2.5rem !important;
+                line-height: 1.2;
+            }
+        }
+        
+        /* Mobile menu improvements */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+                /* Enhanced Mobile-specific improvements */
+        @media (max-width: 768px) {
+            /* Navigation improvements */
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Hero section mobile optimization */
+            .hero-social-cards {
+                position: relative !important;
+                width: 100% !important;
+                height: auto !important;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero-social-card {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                width: 100% !important;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+            
+            /* Phone mockup mobile adjustments */
+            .phone-mockup {
+                width: 180px !important;
+                height: 360px !important;
+                transform: perspective(1000px) rotateY(0deg) rotateX(0deg) !important;
+            }
+            
+            /* Hide decorative elements on mobile */
+            .floating-elements {
+                display: none;
+            }
+            
+            /* Typography adjustments - LARGER MOBILE HEADERS */
+            .marquee-text {
+                font-size: 1.25rem !important;
+            }
+            
+            .hero-title {
+                font-size: 3rem !important;
+                line-height: 1.1;
+                margin-bottom: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2.75rem !important;
+                line-height: 1.2;
+                margin-bottom: 1.5rem;
+            }
+            
+            /* Subtitle text larger on mobile */
+            .hero-subtitle {
+                font-size: 1.125rem !important;
+                line-height: 1.4;
+            }
+            
+            /* Description text larger */
+            .hero-description {
+                font-size: 1rem !important;
+                line-height: 1.5;
+            }
+            
+            /* Services section mobile optimization */
+            .grid.lg\:grid-cols-2 {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            /* Testimonials mobile optimization */
+            .testimonial-card {
+                padding: 1.5rem !important;
+            }
+            
+            /* Social media cards mobile optimization */
+            .social-card .h-48 {
+                height: 8rem !important;
+            }
+            
+            /* Instagram gallery mobile optimization */
+            .destination-card {
+                transform: none !important;
+                margin-bottom: 1rem;
+            }
+            
+            /* Video showcase mobile optimization */
+            .overflow-x-auto {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .w-56 {
+                width: 12rem;
+            }
+            
+            /* Footer mobile optimization */
+            footer .flex {
+                text-align: center;
+            }
+            
+            footer .space-x-6 {
+                justify-content: center;
+            }
+        }
+        
+        /* Additional mobile improvements for smaller screens */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.5rem !important;
+                line-height: 1.1;
+            }
+            
+            .section-title {
+                font-size: 2.25rem !important;
+                line-height: 1.2;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem !important;
+            }
+            
+            .hero-description {
+                font-size: 0.95rem !important;
+            }
+            
+            .phone-mockup {
+                width: 160px !important;
+                height: 320px !important;
+            }
+            
+            .testimonial-card {
+                padding: 1rem !important;
+            }
+            
+            .social-card .p-6 {
+                padding: 1rem !important;
+            }
+            
+            .marquee-text {
+                font-size: 1rem !important;
+            }
+        }
+        
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .hover\:scale-105:hover {
+                transform: none;
+            }
+            
+            .hover\:rotate-0:hover {
+                transform: none;
+            }
+            
+            .testimonial-card:hover {
+                transform: none;
+            }
+        }
+        
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Section slide-up animation */
+        .section-slide-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .section-slide-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Enhanced scroll fade with slide-up */
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Mobile-optimized animations */
+        @media (max-width: 768px) {
+            /* Reduce animation complexity on mobile for better performance */
+            .section-slide-up {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            }
+            
+            .section-slide-up.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .scroll-fade {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            }
+            
+            .scroll-fade.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            /* Ensure sections are visible by default on very small screens */
+            @media (max-width: 480px) {
+                .section-slide-up {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+        
+        /* Navigation link active state */
+        .nav-link-active {
+            color: #F8D7D5 !important;
+            position: relative;
+        }
+        
+        .nav-link-active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #F8D7D5;
+            transform: scaleX(1);
+            transition: transform 0.3s ease;
+        }
+        
+        /* Section transition overlay */
+        .section-transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(248, 215, 213, 0.1) 0%, rgba(237, 228, 223, 0.1) 100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 30;
+            pointer-events: none;
+        }
+        
+        .section-transition-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body class="bg-white font-poppins text-deep-gray antialiased">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white bg-opacity-90 backdrop-blur-md z-50 shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-xl sm:text-2xl font-playfair font-medium text-deep-gray hover:text-soft-pink transition">Monica Smirnoff</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="hover:text-soft-pink transition">About</a>
+                <a href="#brands" class="hover:text-soft-pink transition">Brands</a>
+                <a href="#work" class="hover:text-soft-pink transition">Work</a>
+                <a href="#rates" class="hover:text-soft-pink transition">Rates</a>
+                <a href="#testimonials" class="hover:text-soft-pink transition">Testimonials</a>
+                <a href="#social" class="hover:text-soft-pink transition">Social</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-deep-gray focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu md:hidden fixed top-0 left-0 w-full h-full bg-white z-40 pt-20 px-6">
+        <div class="flex flex-col space-y-6 text-center">
+            <a href="#about" class="py-3 text-xl hover:text-soft-pink transition mobile-menu-link">About</a>
+            <a href="#brands" class="py-3 text-xl hover:text-soft-pink transition mobile-menu-link">Brands</a>
+            <a href="#work" class="py-3 text-xl hover:text-soft-pink transition mobile-menu-link">Work</a>
+            <a href="#rates" class="py-3 text-xl hover:text-soft-pink transition mobile-menu-link">Rates</a>
+            <a href="#testimonials" class="py-3 text-xl hover:text-soft-pink transition mobile-menu-link">Testimonials</a>
+            <a href="#social" class="py-3 text-xl hover:text-soft-pink transition mobile-menu-link">Social</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20 pb-16 md:pt-0">
+        <div class="container mx-auto px-4 sm:px-6 md:px-12 flex flex-col md:flex-row items-center">
+            <div class="w-full md:w-1/2 mb-12 md:mb-0 scroll-fade text-center md:text-left" style="transform: translateY(30px);">
+                <h1 class="hero-title text-3xl sm:text-4xl md:text-6xl font-playfair font-bold mb-4">Monica Smirnoff</h1>
+                <p class="hero-subtitle text-base sm:text-lg md:text-xl text-warm-gray mb-6">UGC Creator · Model · Food Photographer & Blogger <span class="text-xl">🇺🇦</span></p>
+                <p class="hero-description text-sm sm:text-base md:text-lg mb-8 max-w-lg mx-auto md:mx-0">Creating compelling content and authentic brand stories for lifestyle, beauty, and food niches.</p>
+                
+                <div class="flex items-center justify-center md:justify-start mb-10 space-x-8">
+                    <div class="flex items-center">
+                        <i class="fab fa-instagram text-2xl mr-2 text-pink-600"></i>
+                        <span class="text-sm sm:text-base">12.9K</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fab fa-tiktok text-2xl mr-2"></i>
+                        <span class="text-sm sm:text-base">3.13k</span>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
+                    <a href="#work" class="px-6 sm:px-8 py-3 bg-soft-pink text-deep-gray rounded-full font-medium hover:bg-opacity-90 transition shadow-md hover:shadow-lg text-center text-sm sm:text-base">View Portfolio</a>
+                    <a href="#rates" class="px-6 sm:px-8 py-3 border-2 border-deep-gray rounded-full font-medium hover:bg-deep-gray hover:text-white transition text-center text-sm sm:text-base">Work With Me</a>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-1/2 flex justify-center scroll-fade" style="transform: translateY(30px);">
+                <div class="hero-image-container relative">
+                    <!-- Modern Social Media Cards -->
+                    <div class="hero-social-cards relative w-full max-w-md md:w-96 md:h-96">
+                        <!-- Instagram Card -->
+                        <div class="hero-social-card absolute md:top-0 md:left-0 bg-white rounded-2xl p-4 sm:p-6 shadow-2xl transform hover:rotate-0 hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer z-10 w-full md:w-72 md:-rotate-3">
+                            <!-- Profile Header -->
+                            <div class="flex items-center mb-4 sm:mb-6">
+                                <div class="w-12 sm:w-16 h-12 sm:h-16 rounded-full overflow-hidden border-3 border-soft-pink mr-3 sm:mr-4 shadow-md">
+                                    <img src="/Images/about.jpg" alt="Monica's Instagram" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="font-playfair font-bold text-base sm:text-lg text-deep-gray mb-1">Monica Smirnoff</h3>
+                                    <p class="text-warm-gray text-xs sm:text-sm font-poppins">UGC Content Creator</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Stats Row -->
+                            <div class="flex justify-between text-center mb-4 sm:mb-6 bg-muted-beige bg-opacity-30 rounded-xl p-3 sm:p-4">
+                                <div>
+                                    <div class="font-playfair font-bold text-lg sm:text-xl text-deep-gray">194</div>
+                                    <div class="text-warm-gray text-xs font-poppins">Posts</div>
+                                </div>
+                                <div>
+                                    <div class="font-playfair font-bold text-lg sm:text-xl text-deep-gray">12.9K</div>
+                                    <div class="text-warm-gray text-xs font-poppins">Followers</div>
+                                </div>
+                                <div>
+                                    <div class="font-playfair font-bold text-lg sm:text-xl text-deep-gray">6.5K</div>
+                                    <div class="text-warm-gray text-xs font-poppins">Following</div>
+                                </div>
+                            </div>
+                            
+                            <!-- About Section -->
+                            <div class="mb-4">
+                                <h4 class="font-playfair font-medium text-deep-gray mb-2 text-sm sm:text-base">About</h4>
+                                <p class="text-warm-gray text-xs sm:text-sm font-poppins leading-relaxed">
+                                    Food photographer & blogger creating authentic brand stories for lifestyle and beauty niches.
+                                </p>
+                            </div>
+                            
+                            <!-- Instagram Badge -->
+                            <div class="flex items-center justify-center">
+                                <i class="fab fa-instagram text-pink-600 text-base sm:text-lg mr-2"></i>
+                                <span class="font-poppins text-xs sm:text-sm text-deep-gray">@officialmonicasmirnoff</span>
+                            </div>
+                        </div>
+                        
+                        <!-- TikTok Card -->
+                        <div class="hero-social-card absolute md:top-20 md:left-60 bg-white rounded-2xl p-4 sm:p-6 shadow-2xl transform hover:rotate-0 hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer z-20 w-full md:w-72 md:rotate-3 mt-4 md:mt-0">
+                            <!-- Profile Header -->
+                            <div class="flex items-center mb-4 sm:mb-6">
+                                <div class="w-12 sm:w-16 h-12 sm:h-16 rounded-full overflow-hidden border-3 border-deep-gray mr-3 sm:mr-4 shadow-md">
+                                    <img src="/Images/tiktok.jpeg" alt="Melbourne Food TikTok" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="font-playfair font-bold text-base sm:text-lg text-deep-gray mb-1">Melbourne Food</h3>
+                                    <p class="text-warm-gray text-xs sm:text-sm font-poppins">Food Content Creator</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Stats Row -->
+                            <div class="flex justify-between text-center mb-4 sm:mb-6 bg-muted-beige bg-opacity-30 rounded-xl p-3 sm:p-4">
+                                <div>
+                                    <div class="font-playfair font-bold text-lg sm:text-xl text-deep-gray">1.6K</div>
+                                    <div class="text-warm-gray text-xs font-poppins">Following</div>
+                                </div>
+                                <div>
+                                    <div class="font-playfair font-bold text-lg sm:text-xl text-deep-gray">3.1K</div>
+                                    <div class="text-warm-gray text-xs font-poppins">Followers</div>
+                                </div>
+                                <div>
+                                    <div class="font-playfair font-bold text-lg sm:text-xl text-deep-gray">41.7K</div>
+                                    <div class="text-warm-gray text-xs font-poppins">Likes</div>
+                                </div>
+                            </div>
+                            
+                            <!-- About Section -->
+                            <div class="mb-4">
+                                <h4 class="font-playfair font-medium text-deep-gray mb-2 text-sm sm:text-base">About</h4>
+                                <p class="text-warm-gray text-xs sm:text-sm font-poppins leading-relaxed">
+                                    Showcasing Melbourne's best food spots and creating engaging culinary content.
+                                </p>
+                            </div>
+                            
+                            <!-- TikTok Badge -->
+                            <div class="flex items-center justify-center">
+                                <i class="fab fa-tiktok text-black text-base sm:text-lg mr-2"></i>
+                                <span class="font-poppins text-xs sm:text-sm text-deep-gray">@melbournesfood</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating decorative elements -->
+                    <div class="floating-elements hidden md:block">
+                        <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-full shadow-xl z-0 animate-float">
+                            <i class="fas fa-camera text-soft-pink text-2xl"></i>
+                        </div>
+                        <div class="absolute -top-6 -left-6 bg-white p-4 rounded-full shadow-xl z-0 animate-float" style="animation-delay: 1s;">
+                            <i class="fas fa-utensils text-soft-pink text-2xl"></i>
+                        </div>
+                        <div class="absolute top-20 -right-10 bg-white p-3 rounded-full shadow-xl z-0 animate-float" style="animation-delay: 2s;">
+                            <i class="fas fa-magic text-soft-pink text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 sm:py-20 bg-muted-beige bg-opacity-30">
+        <div class="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center">
+            <div class="w-full md:w-1/3 mb-8 sm:mb-12 md:mb-0 flex justify-center scroll-fade">
+                <div class="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                    <img src="/Images/about.jpg" alt="Monica Smirnoff" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="w-full md:w-2/3 md:pl-12 scroll-fade text-center md:text-left" style="transform: translateY(30px);">
+                <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-playfair font-bold mb-6">About Me</h2>
+                <p class="text-base sm:text-lg mb-6 leading-relaxed">Hi! I'm Monica, a passionate food photographer, model, and UGC content creator with a love for telling brand stories through visuals. From cozy cafés to bold beauty brands, I help businesses shine online with relatable, high-converting content.</p>
+                <p class="text-base sm:text-lg leading-relaxed">I collaborate with restaurants, lifestyle, and beauty brands through professional video promos, reels, and curated photo content that connects with audiences genuinely.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section id="brands" class="py-12 sm:py-16 bg-soft-pink bg-opacity-20 overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="section-title text-3xl sm:text-4xl font-playfair font-bold mb-8 sm:mb-12 text-center scroll-fade">Brands I've Worked With</h2>
+            <div class="relative overflow-hidden h-16 sm:h-24">
+                <div class="absolute top-0 left-0 h-full flex items-center animate-marquee whitespace-nowrap">
+                    <div class="marquee-text mx-4 sm:mx-8 text-2xl sm:text-4xl font-bold opacity-70 scroll-brand">Princess Polly</div>
+                    <div class="marquee-text mx-4 sm:mx-8 text-2xl sm:text-4xl font-bold opacity-70 scroll-brand">Oodie</div>
+                    <div class="marquee-text mx-4 sm:mx-8 text-2xl sm:text-4xl font-bold opacity-70 scroll-brand">W Cosmetics</div>
+                    <div class="marquee-text mx-4 sm:mx-8 text-2xl sm:text-4xl font-bold opacity-70 scroll-brand">Beauty Amora</div>
+                    <div class="marquee-text mx-4 sm:mx-8 text-2xl sm:text-4xl font-bold opacity-70 scroll-brand">Marc Jacobs</div>
+                    <div class="marquee-text mx-4 sm:mx-8 text-2xl sm:text-4xl font-bold opacity-70 scroll-brand">Bath & Body Works</div>
+                    <div class="marquee-text mx-4 sm:mx-8 text-2xl sm:text-4xl font-bold opacity-70 scroll-brand">Princess Polly</div>
+                    <div class="marquee-text mx-4 sm:mx-8 text-2xl sm:text-4xl font-bold opacity-70 scroll-brand">Oodie</div>
+                    <div class="marquee-text mx-4 sm:mx-8 text-2xl sm:text-4xl font-bold opacity-70 scroll-brand">W Cosmetics</div>
+                    <div class="marquee-text mx-4 sm:mx-8 text-2xl sm:text-4xl font-bold opacity-70 scroll-brand">Beauty Amora</div>
+                    <div class="marquee-text mx-4 sm:mx-8 text-2xl sm:text-4xl font-bold opacity-70 scroll-brand">Marc Jacobs</div>
+                    <div class="marquee-text mx-4 sm:mx-8 text-2xl sm:text-4xl font-bold opacity-70 scroll-brand">Bath & Body Works</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="py-16 sm:py-20">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-playfair font-bold mb-8 sm:mb-12 text-center scroll-fade">My Work</h2>
+            
+            <!-- Video Showcase -->
+            <div class="mb-16 sm:mb-20 scroll-fade">
+                <h3 class="text-2xl sm:text-3xl font-playfair font-medium mb-8 sm:mb-12 text-center">Video Content</h3>
+                <div class="overflow-x-auto pb-8">
+                    <div class="flex space-x-4 sm:space-x-8 w-max px-4">
+                        <!-- Video 1 -->
+                        <div class="w-56 sm:w-72 flex-shrink-0 video-card">
+                            <div class="phone-mockup mx-auto" style="width: 200px; height: 400px; position: relative; border-radius: 35px; background: linear-gradient(145deg, #2c2c2c, #1a1a1a); padding: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1); transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);">
+                                <div class="phone-screen" style="width: 100%; height: 100%; border-radius: 28px; overflow: hidden; background: #000; position: relative;">
+                                    <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                        <source src="/Images/vid1.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease;">
+                                        <div class="bg-white bg-opacity-90 rounded-full p-3 backdrop-blur-sm">
+                                            <i class="fas fa-volume-up text-soft-pink text-xl"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 50px; height: 5px; background: #333; border-radius: 3px; z-index: 10;"></div>
+                                <div style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: 35px; height: 3px; background: #333; border-radius: 2px; z-index: 10;"></div>
+                            </div>
+                            <p class="text-center mt-4 font-poppins text-warm-gray text-sm sm:text-base">Beauty Product Demo</p>
+                        </div>
+                        
+                        <!-- Video 2 -->
+                        <div class="w-56 sm:w-72 flex-shrink-0 video-card">
+                            <div class="phone-mockup mx-auto" style="width: 200px; height: 400px; position: relative; border-radius: 35px; background: linear-gradient(145deg, #2c2c2c, #1a1a1a); padding: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1); transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);">
+                                <div class="phone-screen" style="width: 100%; height: 100%; border-radius: 28px; overflow: hidden; background: #000; position: relative;">
+                                    <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                        <source src="/Images/vid2.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease;">
+                                        <div class="bg-white bg-opacity-90 rounded-full p-3 backdrop-blur-sm">
+                                            <i class="fas fa-volume-up text-soft-pink text-xl"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 50px; height: 5px; background: #333; border-radius: 3px; z-index: 10;"></div>
+                                <div style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: 35px; height: 3px; background: #333; border-radius: 2px; z-index: 10;"></div>
+                            </div>
+                            <p class="text-center mt-4 font-poppins text-warm-gray text-sm sm:text-base">Food Photography</p>
+                        </div>
+                        
+                        <!-- Video 3 -->
+                        <div class="w-56 sm:w-72 flex-shrink-0 video-card">
+                            <div class="phone-mockup mx-auto" style="width: 200px; height: 400px; position: relative; border-radius: 35px; background: linear-gradient(145deg, #2c2c2c, #1a1a1a); padding: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1); transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);">
+                                <div class="phone-screen" style="width: 100%; height: 100%; border-radius: 28px; overflow: hidden; background: #000; position: relative;">
+                                    <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                        <source src="/Images/vid3.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease;">
+                                        <div class="bg-white bg-opacity-90 rounded-full p-3 backdrop-blur-sm">
+                                            <i class="fas fa-volume-up text-soft-pink text-xl"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 50px; height: 5px; background: #333; border-radius: 3px; z-index: 10;"></div>
+                                <div style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: 35px; height: 3px; background: #333; border-radius: 2px; z-index: 10;"></div>
+                            </div>
+                            <p class="text-center mt-4 font-poppins text-warm-gray text-sm sm:text-base">Fashion Showcase</p>
+                        </div>
+                        
+                        <!-- Video 4 -->
+                        <div class="w-56 sm:w-72 flex-shrink-0 video-card">
+                            <div class="phone-mockup mx-auto" style="width: 200px; height: 400px; position: relative; border-radius: 35px; background: linear-gradient(145deg, #2c2c2c, #1a1a1a); padding: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1); transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);">
+                                <div class="phone-screen" style="width: 100%; height: 100%; border-radius: 28px; overflow: hidden; background: #000; position: relative;">
+                                    <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                        <source src="/Images/vid4.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease;">
+                                        <div class="bg-white bg-opacity-90 rounded-full p-3 backdrop-blur-sm">
+                                            <i class="fas fa-volume-up text-soft-pink text-xl"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 50px; height: 5px; background: #333; border-radius: 3px; z-index: 10;"></div>
+                                <div style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: 35px; height: 3px; background: #333; border-radius: 2px; z-index: 10;"></div>
+                            </div>
+                            <p class="text-center mt-4 font-poppins text-warm-gray text-sm sm:text-base">Travel Vlog</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Instagram Gallery -->
+            <div class="scroll-fade">
+                <h3 class="text-2xl sm:text-3xl font-playfair font-medium mb-8 sm:mb-12 text-center">My Instagram</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+                    
+                    <!-- Instagram Post 1 -->
+                    <div class="destination-card" style="width: 100%; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; transform: rotate(-1deg); border: 1px solid #dbdbdb;">
+                        <div class="insta-header" style="display: flex; align-items: center; padding: 12px 16px; border-bottom: 1px solid #efefef;">
+                            <div class="insta-profile-pic" style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 14px; color: white; font-weight: bold;">MS</div>
+                            <div>
+                                <div class="insta-username" style="font-weight: 600; font-size: 14px; color: #262626; font-family: 'Poppins', sans-serif;">monicasmirnoff</div>
+                                <div class="insta-location" style="font-size: 12px; color: #8e8e8e; margin-top: 2px; font-family: 'Poppins', sans-serif;">UGC Content Creation</div>
+                            </div>
+                        </div>
+                        <img src="/Images/pic1.jpg" 
+                             alt="UGC Content Creation" 
+                             class="destination-image" style="width: 100%; height: 250px; object-fit: cover; display: block; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                        <div class="insta-actions" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 16px; border-bottom: 1px solid #efefef;">
+                            <div class="insta-action-buttons" style="display: flex; gap: 16px;">
+                                <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">♡</button>
+                                <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">💬</button>
+                                <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">📤</button>
+                            </div>
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">🔖</button>
+                        </div>
+                        <div class="insta-likes" style="font-weight: 600; font-size: 14px; color: #262626; padding: 0 16px 16px; font-family: 'Poppins', sans-serif;">1,247 likes</div>
+                    </div>
+
+                    <!-- Instagram Post 2 -->
+                    <div class="destination-card" style="width: 100%; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; transform: rotate(1deg); border: 1px solid #dbdbdb;">
+                        <div class="insta-header" style="display: flex; align-items: center; padding: 12px 16px; border-bottom: 1px solid #efefef;">
+                            <div class="insta-profile-pic" style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 14px; color: white; font-weight: bold;">MS</div>
+                            <div>
+                                <div class="insta-username" style="font-weight: 600; font-size: 14px; color: #262626; font-family: 'Poppins', sans-serif;">monicasmirnoff</div>
+                                <div class="insta-location" style="font-size: 12px; color: #8e8e8e; margin-top: 2px; font-family: 'Poppins', sans-serif;">Behind the Scenes</div>
+                            </div>
+                        </div>
+                        <img src="Images/pic2.jpg" 
+                             alt="Behind the scenes content" 
+                             class="destination-image" style="width: 100%; height: 250px; object-fit: cover; display: block; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                        <div class="insta-actions" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 16px; border-bottom: 1px solid #efefef;">
+                            <div class="insta-action-buttons" style="display: flex; gap: 16px;">
+                                <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">♡</button>
+                                <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">💬</button>
+                                <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">📤</button>
+                            </div>
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">🔖</button>
+                        </div>
+                        <div class="insta-likes" style="font-weight: 600; font-size: 14px; color: #262626; padding: 0 16px 16px; font-family: 'Poppins', sans-serif;">892 likes</div>
+                    </div>
+
+                    <!-- Instagram Post 3 -->
+                    <div class="destination-card" style="width: 100%; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; transform: rotate(-1deg); border: 1px solid #dbdbdb;">
+                        <div class="insta-header" style="display: flex; align-items: center; padding: 12px 16px; border-bottom: 1px solid #efefef;">
+                            <div class="insta-profile-pic" style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 14px; color: white; font-weight: bold;">MS</div>
+                            <div>
+                                <div class="insta-username" style="font-weight: 600; font-size: 14px; color: #262626; font-family: 'Poppins', sans-serif;">monicasmirnoff</div>
+                                <div class="insta-location" style="font-size: 12px; color: #8e8e8e; margin-top: 2px; font-family: 'Poppins', sans-serif;">Product Review</div>
+                            </div>
+                        </div>
+                        <img src="Images/pic3.jpg" 
+                             alt="Product review content" 
+                             class="destination-image" style="width: 100%; height: 250px; object-fit: cover; display: block; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                        <div class="insta-actions" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 16px; border-bottom: 1px solid #efefef;">
+                            <div class="insta-action-buttons" style="display: flex; gap: 16px;">
+                                <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">♡</button>
+                                <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">💬</button>
+                                <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">📤</button>
+                            </div>
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">🔖</button>
+                        </div>
+                        <div class="insta-likes" style="font-weight: 600; font-size: 14px; color: #262626; padding: 0 16px 16px; font-family: 'Poppins', sans-serif;">1,563 likes</div>
+                    </div>
+
+                    <!-- Instagram Post 4 -->
+                    <div class="destination-card" style="width: 100%; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; transform: rotate(1deg); border: 1px solid #dbdbdb;">
+                        <div class="insta-header" style="display: flex; align-items: center; padding: 12px 16px; border-bottom: 1px solid #efefef;">
+                            <div class="insta-profile-pic" style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 14px; color: white; font-weight: bold;">MS</div>
+                            <div>
+                                <div class="insta-username" style="font-weight: 600; font-size: 14px; color: #262626; font-family: 'Poppins', sans-serif;">monicasmirnoff</div>
+                                <div class="insta-location" style="font-size: 12px; color: #8e8e8e; margin-top: 2px; font-family: 'Poppins', sans-serif;">Lifestyle Content</div>
+                            </div>
+                        </div>
+                        <img src="Images/pic4.jpg" 
+                             alt="Lifestyle content" 
+                             class="destination-image" style="width: 100%; height: 250px; object-fit: cover; display: block; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                        <div class="insta-actions" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 16px; border-bottom: 1px solid #efefef;">
+                            <div class="insta-action-buttons" style="display: flex; gap: 16px;">
+                                <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">♡</button>
+                                <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">💬</button>
+                                <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">📤</button>
+                            </div>
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">🔖</button>
+                        </div>
+                        <div class="insta-likes" style="font-weight: 600; font-size: 14px; color: #262626; padding: 0 16px 16px; font-family: 'Poppins', sans-serif;">734 likes</div>
+                    </div>
+
+                    <!-- Instagram Post 5 -->
+                    <div class="destination-card" style="width: 100%; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; transform: rotate(-1deg); border: 1px solid #dbdbdb;">
+                        <div class="insta-header" style="display: flex; align-items: center; padding: 12px 16px; border-bottom: 1px solid #efefef;">
+                            <div class="insta-profile-pic" style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 14px; color: white; font-weight: bold;">MS</div>
+                            <div>
+                                <div class="insta-username" style="font-weight: 600; font-size: 14px; color: #262626; font-family: 'Poppins', sans-serif;">monicasmirnoff</div>
+                                <div class="insta-location" style="font-size: 12px; color: #8e8e8e; margin-top: 2px; font-family: 'Poppins', sans-serif;">Brand Collaboration</div>
+                            </div>
+                        </div>
+                        <img src="Images/pic5.jpg" 
+                             alt="Brand collaboration" 
+                             class="destination-image" style="width: 100%; height: 250px; object-fit: cover; display: block; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                        <div class="insta-actions" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 16px; border-bottom: 1px solid #efefef;">
+                            <div class="insta-action-buttons" style="display: flex; gap: 16px;">
+                                <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">♡</button>
+                                <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">💬</button>
+                                <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">📤</button>
+                            </div>
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">🔖</button>
+                        </div>
+                        <div class="insta-likes" style="font-weight: 600; font-size: 14px; color: #262626; padding: 0 16px 16px; font-family: 'Poppins', sans-serif;">2,156 likes</div>
+                    </div>
+
+                    <!-- Instagram Post 6 -->
+                    <div class="destination-card" style="width: 100%; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; transform: rotate(1deg); border: 1px solid #dbdbdb;">
+                        <div class="insta-header" style="display: flex; align-items: center; padding: 12px 16px; border-bottom: 1px solid #efefef;">
+                            <div class="insta-profile-pic" style="width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 14px; color: white; font-weight: bold;">MS</div>
+                            <div>
+                                <div class="insta-username" style="font-weight: 600; font-size: 14px; color: #262626; font-family: 'Poppins', sans-serif;">monicasmirnoff</div>
+                                <div class="insta-location" style="font-size: 12px; color: #8e8e8e; margin-top: 2px; font-family: 'Poppins', sans-serif;">Tutorial Content</div>
+                            </div>
+                        </div>
+                        <img src="Images/pic6.jpg" 
+                             alt="Tutorial content" 
+                             class="destination-image" style="width: 100%; height: 250px; object-fit: cover; display: block; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                        <div class="insta-actions" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 16px; border-bottom: 1px solid #efefef;">
+                            <div class="insta-action-buttons" style="display: flex; gap: 16px;">
+                                <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">♡</button>
+                                <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">💬</button>
+                                <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">📤</button>
+                            </div>
+                            <button class="insta-action-btn" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #262626; transition: color 0.2s ease;">🔖</button>
+                        </div>
+                        <div class="insta-likes" style="font-weight: 600; font-size: 14px; color: #262626; padding: 0 16px 16px; font-family: 'Poppins', sans-serif;">1,089 likes</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="rates" class="py-16 sm:py-20 bg-muted-beige bg-opacity-30">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-playfair font-bold mb-8 sm:mb-12 text-center scroll-fade">Services</h2>
+            <p class="text-center text-warm-gray mb-8 sm:mb-12 font-poppins text-sm sm:text-base">Payment is due on the day of visit - an invoice will be sent prior to attending</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 max-w-6xl mx-auto">
+                <!-- Package 1: Social Media Promotion -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg scroll-fade relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-soft-pink to-deep-gray"></div>
+                    <div class="flex items-center mb-6">
+                        <img src="/Images/pic1.jpg" alt="Social Media Promotion" class="w-20 h-20 rounded-lg object-cover mr-4">
+                        <div>
+                            <h3 class="text-2xl font-playfair font-medium text-deep-gray">Package 1 Social Media Promotion</h3>
+                            <p class="text-3xl font-bold text-deep-gray mt-2">$300</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-muted-beige bg-opacity-30 rounded-lg p-4 mb-6">
+                        <p class="text-sm font-poppins text-warm-gray mb-2">$250+ 50 travel fee</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-video text-soft-pink mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-poppins text-deep-gray"><strong>1x TikTok video</strong></p>
+                                <p class="text-sm text-warm-gray">Previous results getting up to 150,000 views</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fab fa-instagram text-soft-pink mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-poppins text-deep-gray"><strong>1x Instagram video</strong></p>
+                                <p class="text-sm text-warm-gray">Tagged and collaboration</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-star text-soft-pink mt-1 mr-3"></i>
+                            <p class="font-poppins text-deep-gray"><strong>1x 5-star Google review</strong></p>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-images text-soft-pink mt-1 mr-3"></i>
+                            <p class="font-poppins text-deep-gray"><strong>3x stories minimum</strong></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Package 2: Professional Photography -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg scroll-fade relative overflow-hidden" style="animation-delay: 0.2s;">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-deep-gray to-soft-pink"></div>
+                    <div class="flex items-center mb-6">
+                        <img src="/Images/pic2.jpg" alt="Professional Photography" class="w-20 h-20 rounded-lg object-cover mr-4">
+                        <div>
+                            <h3 class="text-2xl font-playfair font-medium text-deep-gray">Package 2 Professional Photography</h3>
+                            <div class="mt-2">
+                                <p class="text-2xl font-bold text-deep-gray">$25 <span class="text-lg font-normal">per photo</span></p>
+                                <p class="text-md font-medium text-deep-gray">$100 servicing fee on the day which will be used towards photos</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-muted-beige bg-opacity-30 rounded-lg p-4 mb-6">
+                        <p class="text-sm font-poppins text-warm-gray text-center">Includes an album of photos you can choose from that are fully edited and ready to use on your menus, socials and posters</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-camera text-soft-pink mt-1 mr-3"></i>
+                            <p class="font-poppins text-deep-gray"><strong>Top-of-the-line camera and extensive experience in food photography</strong></p>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-palette text-soft-pink mt-1 mr-3"></i>
+                            <p class="font-poppins text-deep-gray"><strong>Professional editing and color grading</strong></p>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-eye text-soft-pink mt-1 mr-3"></i>
+                            <p class="font-poppins text-deep-gray"><strong>Eye-catching visuals to attract customers</strong></p>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-chart-line text-soft-pink mt-1 mr-3"></i>
+                            <p class="font-poppins text-deep-gray"><strong>High-quality images to increase engagement</strong></p>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-mobile-alt text-soft-pink mt-1 mr-3"></i>
+                            <p class="font-poppins text-deep-gray"><strong>Ready-to-use content for all platforms</strong></p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <a href="#social" class="inline-block px-6 py-3 bg-deep-gray text-white rounded-full hover:bg-opacity-90 transition font-poppins">Book Photography Session</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-playfair font-bold mb-12 text-center scroll-fade">Testimonials</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white p-8 rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl scroll-fade">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-soft-pink to-muted-beige mr-4 overflow-hidden">
+                            <!-- Reviewer image placeholder -->
+                            <div class="w-full h-full flex items-center justify-center">
+                                <i class="fas fa-user text-white text-xl"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Sarah Johnson</h4>
+                            <p class="text-sm text-warm-gray">Marketing Director, Beauty Amora</p>
+                        </div>
+                    </div>
+                    <p class="italic mb-4">"Monica's content for our summer campaign performed 40% better than our usual posts. Her ability to showcase products naturally while maintaining brand aesthetics is unmatched."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white p-8 rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl scroll-fade" style="animation-delay: 0.2s;">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-deep-gray to-warm-gray mr-4 overflow-hidden">
+                            <div class="w-full h-full flex items-center justify-center">
+                                <i class="fas fa-user text-white text-xl"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Mike Thompson</h4>
+                            <p class="text-sm text-warm-gray">CEO, Foodie Adventures</p>
+                        </div>
+                    </div>
+                    <p class="italic mb-4">"We've worked with many content creators, but Monica's food photography stands out. She has a unique way of making dishes look irresistible while maintaining authenticity."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white p-8 rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl scroll-fade" style="animation-delay: 0.4s;">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-soft-pink to-muted-beige mr-4 overflow-hidden">
+                            <div class="w-full h-full flex items-center justify-center">
+                                <i class="fas fa-user text-white text-xl"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Emily Rodriguez</h4>
+                            <p class="text-sm text-warm-gray">Brand Manager, Princess Polly</p>
+                        </div>
+                    </div>
+                    <p class="italic mb-4">"Monica's UGC videos for our new collection had incredible engagement. She perfectly captured our aesthetic while adding her own creative flair - exactly what we needed!"</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section id="social" class="py-20 bg-soft-pink bg-opacity-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-playfair font-bold mb-12 text-center scroll-fade">Connect With Me</h2>
+            
+            <div class="flex flex-col md:flex-row gap-6 max-w-2xl mx-auto justify-center items-center">
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/officialmonicasmirnoff/" class="social-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-fade w-full md:w-80">
+                    <div class="h-48 bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center">
+                        <i class="fab fa-instagram text-white text-6xl social-icon transition-transform duration-200"></i>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-medium mb-2">Instagram</h3>
+                        <p class="text-warm-gray mb-4">Follow for daily content</p>
+                        <button class="px-6 py-2 bg-pink-500 text-white rounded-full text-sm hover:bg-pink-600 transition">Follow @monica</button>
+                    </div>
+                </a>
+                
+                <!-- TikTok -->
+                <a href="https://www.tiktok.com/@melbournesfood?_t=8ftBg5ZgxO6&_r=1" class="social-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg scroll-fade w-full md:w-80" style="animation-delay: 0.2s;">
+                    <div class="h-48 bg-gradient-to-br from-black to-gray-800 flex items-center justify-center">
+                        <i class="fab fa-tiktok text-white text-6xl social-icon transition-transform duration-200"></i>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-medium mb-2">TikTok</h3>
+                        <p class="text-warm-gray mb-4">Watch trending videos</p>
+                        <button class="px-6 py-2 bg-gray-900 text-white rounded-full text-sm hover:bg-black transition">Watch on TikTok</button>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-deep-gray text-white py-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-playfair font-medium">Monica Smirnoff</a>
+                </div>
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="hover:text-soft-pink transition text-xl"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-soft-pink transition text-xl"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="hover:text-soft-pink transition text-xl"><i class="fas fa-envelope"></i></a>
+                </div>
+                <div>
+                    <p class="text-sm text-warm-gray">© 2025 Monica Smirnoff. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.mobile-menu-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    mobileMenu.classList.remove('active');
+                }
+            });
+        }
+
+        // Smooth scroll with slide-up animation for navigation links
+        function initSmoothNavigation() {
+            const navLinks = document.querySelectorAll('nav a[href^="#"], .mobile-menu a[href^="#"]');
+            const sections = document.querySelectorAll('section');
+            const transitionOverlay = document.createElement('div');
+            transitionOverlay.className = 'section-transition-overlay';
+            document.body.appendChild(transitionOverlay);
+            
+            // Add section-slide-up class to all sections
+            sections.forEach(section => {
+                section.classList.add('section-slide-up');
+            });
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        // Show transition overlay
+                        transitionOverlay.classList.add('active');
+                        
+                        // Remove active class from all sections
+                        sections.forEach(section => {
+                            section.classList.remove('active');
+                        });
+                        
+                        // Update active nav link
+                        navLinks.forEach(navLink => {
+                            navLink.classList.remove('nav-link-active');
+                        });
+                        link.classList.add('nav-link-active');
+                        
+                        // Smooth scroll to target
+                        setTimeout(() => {
+                            targetSection.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                            
+                            // Hide transition overlay and activate section
+                            setTimeout(() => {
+                                transitionOverlay.classList.remove('active');
+                                targetSection.classList.add('active');
+                                
+                                // Trigger scroll animations for elements in the section
+                                const elementsInSection = targetSection.querySelectorAll('.scroll-fade');
+                                elementsInSection.forEach((element, index) => {
+                                    setTimeout(() => {
+                                        element.classList.add('visible');
+                                    }, index * 100);
+                                });
+                            }, 300);
+                        }, 100);
+                    }
+                });
+            });
+        }
+
+        // Enhanced scroll animation with intersection observer - MOBILE OPTIMIZED
+        function initScrollAnimations() {
+            const scrollFadeElements = document.querySelectorAll('.scroll-fade');
+            
+            // Mobile-optimized observer options
+            const isMobile = window.innerWidth <= 768;
+            const observerOptions = {
+                threshold: isMobile ? 0.05 : 0.1,
+                rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add a small delay for mobile to ensure smooth animation
+                        if (isMobile) {
+                            setTimeout(() => {
+                                entry.target.classList.add('visible');
+                            }, 50);
+                        } else {
+                            entry.target.classList.add('visible');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            scrollFadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+        
+        // Section visibility tracking for navigation - MOBILE OPTIMIZED
+        function initSectionTracking() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a[href^="#"], .mobile-menu a[href^="#"]');
+            
+            // Mobile-optimized threshold
+            const isMobile = window.innerWidth <= 768;
+            const threshold = isMobile ? 0.15 : 0.3;
+            
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const sectionId = entry.target.id;
+                        
+                        // Update active nav link
+                        navLinks.forEach(link => {
+                            link.classList.remove('nav-link-active');
+                            if (link.getAttribute('href') === `#${sectionId}`) {
+                                link.classList.add('nav-link-active');
+                            }
+                        });
+                        
+                        // Add slide-up animation to current section with mobile delay
+                        if (isMobile) {
+                            setTimeout(() => {
+                                entry.target.classList.add('active');
+                            }, 100);
+                        } else {
+                            entry.target.classList.add('active');
+                        }
+                    }
+                });
+            }, {
+                threshold: threshold
+            });
+            
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+        }
+        
+        // Initialize all functionality when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initSmoothNavigation();
+            initScrollAnimations();
+            initSectionTracking();
+            
+            // Initial activation of first section
+            const firstSection = document.querySelector('section');
+            if (firstSection) {
+                firstSection.classList.add('active');
+            }
+        });
+        
+        // Fallback for older browsers
+        window.addEventListener('load', () => {
+            const scrollFadeElements = document.querySelectorAll('.scroll-fade');
+            scrollFadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
